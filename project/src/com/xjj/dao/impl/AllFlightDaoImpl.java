@@ -1,28 +1,37 @@
 package com.xjj.dao.impl;
-import java.sql.*;
-import com.xjj.dao.UserDao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.List;
+
+import com.xjj.dao.FlightDao;
+import com.xjj.pojo.Flight;
 import com.xjj.pojo.User;
 
-public class UserDaoImpl implements UserDao{
+public class AllFlightDaoImpl implements FlightDao{
 
 	@Override
-	public User checkUser(String uname, String pwd) {
+	public List<Flight> getFlights(String start,String end) {
 		// TODO Auto-generated method stub
 		Connection con=null;
 		PreparedStatement ps=null;
-		User user=null;
+		List<Flight> flights=null;
 		ResultSet rs=null;
-		String sql="select * from users where uname like ? and pwd like ?";
+		String sql="select * from flight where start=? and end=?";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project?serverTimezone=GMT","root","xyx123");
 			ps=con.prepareStatement(sql);
-			ps.setString(1, uname);
-			ps.setString(2, pwd);
+			ps.setString(1, start);
+			ps.setString(2, end);
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("suc!");
-				user=new User(rs.getInt("uid"),rs.getString("uname"),rs.getString("pwd"));
+				flights.add(new Flight(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getTimestamp(4),rs.getTimestamp(5)));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -38,7 +47,7 @@ public class UserDaoImpl implements UserDao{
 				e.printStackTrace();
 			}
 		}
-		return user;
+		return flights;
 	}
 
 }

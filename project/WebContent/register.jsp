@@ -4,21 +4,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>登陆</title>
+<title>注册</title>
 </head>
 <body>
-	<t1>欢迎使用本系统</t1>
+	<t1>欢迎注册本系统</t1>
 	<%
-		if(session.getAttribute("loginFail")!=null){
-			out.write("<p>用户名或密码错误，请重新输入</p>");
+		if(session.getAttribute("RegisterFail")!=null){
+			out.write("<p>注册失败，可能用户名已存在</p>");
 		}
 	%>
 	<form action="/project/user" action="POST">
-		<input type="hidden" name="type" value="login"/>
+		<input type="hidden" name="type" value="register"/>
 		用户名：<input type="text" name="uname"/>
 		密码：<input type="password" name="pwd"/>
-		<input type="submit" value="登陆"/>
+		<input type="submit" value="注册"/>
 	</form>
-	<a href="/project/register.jsp">注册新用户</a>
+	<a href="/project/login.jsp">返回</a>
 </body>
 </html>

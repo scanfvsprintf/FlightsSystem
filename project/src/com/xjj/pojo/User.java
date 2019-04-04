@@ -4,13 +4,11 @@ public class User {
 	private int uid;
 	private String uname;
 	private String pwd;
-	private int age;
-	public User(int uid, String uname, String pwd, int age) {
+	public User(int uid, String uname, String pwd) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
 		this.pwd = pwd;
-		this.age = age;
 	}
 	public User() {
 		super();
@@ -37,12 +35,6 @@ public class User {
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
 	}
 	
 }

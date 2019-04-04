@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.xjj.pojo.User;
 import com.xjj.service.UserService;
+import com.xjj.service.impl.RegisterServiceImpl;
 import com.xjj.service.impl.UserServiceImpl;
 
 /**
@@ -22,7 +23,10 @@ public class UserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		login(request, response);
+		if(request.getParameter("type").equals("login"))
+			login(request, response);
+		else
+			register(request, response);
 	}
 	private void login(HttpServletRequest request, HttpServletResponse response) {
 		User user=null;
@@ -49,5 +53,29 @@ public class UserServlet extends HttpServlet {
 			}
 		}
 	}
-
+	private void register(HttpServletRequest request, HttpServletResponse response) {
+		User user=null;
+		HttpSession session=request.getSession();
+		UserService us=new RegisterServiceImpl();
+		user=us.checkUser(request.getParameter("uname"),request.getParameter("pwd"));
+		if(user!=null) {
+			session.setAttribute("user", user);
+			session.setAttribute("RegisterFail", null);
+			try {
+				response.sendRedirect("/project/main.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else {
+			session.setAttribute("RegisterFail", "1");
+			try {
+				response.sendRedirect("/project/register.jsp");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }
