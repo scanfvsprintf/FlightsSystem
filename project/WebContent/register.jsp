@@ -13,7 +13,7 @@
 			out.write("<p>注册失败，可能用户名已存在</p>");
 		}
 	%>
-	<form action="/project/user" action="POST">
+	<form action="/project/user" method="POST">
 		<input type="hidden" name="type" value="register"/>
 		用户名：<input type="text" name="uname"/>
 		密码：<input type="password" name="pwd"/>

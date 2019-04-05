@@ -3,19 +3,29 @@ package com.xjj.pojo;
 import java.sql.Timestamp;
 
 public class Flight {
+	
 	public int tid;
 	public String start;
 	public String end;
 	public Timestamp takeoff;
 	public Timestamp land;
-	public Flight(int tid, String start, String end, Timestamp takeoff, Timestamp land) {
+	public double price;
+	public Flight(int tid, String start, String end, Timestamp takeoff, Timestamp land, double price) {
 		super();
 		this.tid = tid;
 		this.start = start;
 		this.end = end;
 		this.takeoff = takeoff;
 		this.land = land;
+		this.price = price;
 	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public int getTid() {
 		return tid;
 	}
