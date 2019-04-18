@@ -37,7 +37,7 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			session.setAttribute("loginFail", null);
 			try {
-				response.sendRedirect("/project/main.jsp");
+				response.sendRedirect("/project/main.html");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -62,7 +62,7 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			session.setAttribute("RegisterFail", null);
 			try {
-				response.sendRedirect("/project/main.jsp");
+				response.sendRedirect("/project/main.html");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
