@@ -20,6 +20,9 @@ body,html{
 	position: relative;
 	top: 10px;
 }
+#q{
+	margin-top: 10px;
+}
 #selects{
 	position: absolute;
 	bottom: 10px;

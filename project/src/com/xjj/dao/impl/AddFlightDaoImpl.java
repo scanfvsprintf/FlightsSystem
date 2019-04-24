@@ -1,5 +1,4 @@
 package com.xjj.dao.impl;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,20 +8,13 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.xjj.dao.FlightDao;
-import com.xjj.pojo.Flight;
-import com.xjj.pojo.User;
-
-public class AllFlightDaoImpl implements FlightDao{
-
-	@Override
-	public List<Flight> getFlights(String start,String end,Timestamp takeoff,Timestamp land,double price) {
-		// TODO Auto-generated method stub
+import com.xjj.pojo.*;
+public class AddFlightDaoImpl {
+	public void addFlight(String start, String end, Timestamp takeoff, Timestamp land, double price, String name) {
 		Connection con=null;
 		PreparedStatement ps=null;
 		List<Flight> flights=null;
-		ResultSet rs=null;
-		String sql="select * from flight where start like ? and end like ? and takeoff>? and land<? and price<?";
+		String sql="insert into flight(start,end,takeoff,land,price,name) values (?,?,?,?,?,?)";
 		flights=new ArrayList<Flight>();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,18 +26,14 @@ public class AllFlightDaoImpl implements FlightDao{
 			ps.setTimestamp(3, takeoff);
 			ps.setTimestamp(4, land);
 			ps.setDouble(5, price);
-			rs=ps.executeQuery();
-			while(rs.next()) {
-				System.out.println("suc!");
-				flights.add(new Flight(rs.getInt("tid"),rs.getString("start"),rs.getString("end"),rs.getTimestamp("takeoff"),rs.getTimestamp("land"),rs.getDouble("price"),rs.getString("name")));
-			}
+			ps.setString(6, name);
+			ps.execute();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally {
 			try {
-				rs.close();
 				ps.close();
 				con.close();
 			} catch (SQLException e) {
@@ -53,7 +41,5 @@ public class AllFlightDaoImpl implements FlightDao{
 				e.printStackTrace();
 			}
 		}
-		return flights;
 	}
-
 }

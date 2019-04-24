@@ -37,7 +37,7 @@ public class AllFlightServiceImpl implements FlightService {
 			s=length-1;
 		}
 		if(e>=length) {
-			e=length-1;
+			e=length;
 		}
 		return result.subList(s, e);
 	}

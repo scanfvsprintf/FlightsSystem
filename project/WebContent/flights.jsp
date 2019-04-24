@@ -68,10 +68,10 @@
 				}
 				flights=(new AllFlightServiceImpl()).getFlightsByPage(start,end,takeoff,land,maxPrice,pageNo);
 				out.write("<table border=\"1\">");
-				out.write("<tr><td>"+"机票号"+"</td><td>"+"起飞点"+"</td><td>"+"降落点"+"</td><td>"+"起飞时间"+"</td><td>"+"降落时间"+"</td><td>"+"价格"+"</td><td>"+"收藏"+"</td></tr>");
+				out.write("<tr><td>"+"机票名"+"</td><td>"+"起飞点"+"</td><td>"+"降落点"+"</td><td>"+"起飞时间"+"</td><td>"+"降落时间"+"</td><td>"+"价格"+"</td><td>"+"收藏"+"</td></tr>");
 				if(flights!=null){
 					for(Flight each:flights){
-						out.write("<tr><td>"+each.getTid()+"</td><td>"+each.getStart()+"</td><td>"+each.getEnd()+"</td><td>"+each.getTakeoff()+"</td><td>"+each.getLand()+"</td><td>"+each.getPrice()+"</td><td>"+"<a href=\"\">收藏</a>"+"</td></tr>");
+						out.write("<tr><td>"+each.getName()+"</td><td>"+each.getStart()+"</td><td>"+each.getEnd()+"</td><td>"+each.getTakeoff()+"</td><td>"+each.getLand()+"</td><td>"+each.getPrice()+"</td><td>"+"<a href=\"\">收藏</a>"+"</td></tr>");
 					}
 				}
 				out.write("</table>");

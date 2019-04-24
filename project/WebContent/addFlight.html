@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/flights.css"/>
+	</head>
+	<body>
+	<div id="div1">
+		<form action="/project/addFlight" method="post" style="padding-top: 100px;">
+			名称：<input type="text" name="name" value="" id="q"/><br />
+			起始：<input type="text" name="start" value="" id="q"/><br />
+			终止：<input type="text" name="end" value="" id="q"/><br />
+			起飞时间：<input type="text" name="takeoff" value="" id="q"/><br />
+			降落时间：<input type="text" name="land" value="" id="q"/><br />
+			价格：<input type="text" name="price" value="" id="q"/><br />
+			<input type="submit" value="添加"/>
+			<p>注意：时间格式必须为yyyy-mm-dd hh:mm:ss</p>
+			<p>例如：2011-05-09 11:49:45</p>
+		</form>
+	</div>
+	</body>
+</html>
