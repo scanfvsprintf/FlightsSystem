@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.xjj.pojo.User;
 import com.xjj.service.UserService;
+import com.xjj.service.impl.FixPassWordImpl;
 import com.xjj.service.impl.RegisterServiceImpl;
 import com.xjj.service.impl.UserServiceImpl;
 
@@ -25,8 +26,10 @@ public class UserServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		if(request.getParameter("type").equals("login"))
 			login(request, response);
-		else
+		else if(request.getParameter("type").equals("register"))
 			register(request, response);
+		else if(request.getParameter("type").equals("fixpassword"))
+			fixPassWord(request, response);
 	}
 	private void login(HttpServletRequest request, HttpServletResponse response) {
 		User user=null;
@@ -37,7 +40,8 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			session.setAttribute("loginFail", null);
 			try {
-				response.sendRedirect("/project/main.html");
+				response.sendRedirect("/project/main.jsp");
+				return;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -47,6 +51,7 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("loginFail", "1");
 			try {
 				response.sendRedirect("/project/login.jsp");
+				return;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -62,7 +67,8 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			session.setAttribute("RegisterFail", null);
 			try {
-				response.sendRedirect("/project/main.html");
+				response.sendRedirect("/project/main.jsp");
+				return;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -72,10 +78,35 @@ public class UserServlet extends HttpServlet {
 			session.setAttribute("RegisterFail", "1");
 			try {
 				response.sendRedirect("/project/register.jsp");
+				return;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+	private void fixPassWord(HttpServletRequest request, HttpServletResponse response) {
+		User user=null;
+		HttpSession session=request.getSession();
+		UserService us=new RegisterServiceImpl();
+		if(!(((String)request.getParameter("pwd")).equals((String)request.getParameter("pwd2")))) {
+			try {
+				response.sendRedirect("/project/fixPassWordFail.jsp");
+				return;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		user=(User) session.getAttribute("user");
+		user.setPwd(request.getParameter("pwd"));
+		new FixPassWordImpl().checkUser(user);
+		try {
+			response.sendRedirect("/project/fixPassWordSuc.jsp");
+			return;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

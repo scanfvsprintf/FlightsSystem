@@ -1,26 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import="com.xjj.pojo.User"%>
-<%! 
+﻿<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="com.xjj.service.*,com.xjj.pojo.*,com.xjj.service.impl.*,java.util.*,java.sql.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信息管理系统界面</title>
+<%!
 	User user=null;
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Insert title here</title>
 </head>
-<body>
-	<%
-		user=(User)session.getAttribute("user");
-		if(user!=null){
-			out.write("<t1>欢迎"+user.getUname()+"使用本系统</t1>");
-		}
-		else{
-			response.sendRedirect("/project/login.jsp");
-		}
-	%>
-	<p>请选择您需要的功能：</p>
-	<a href="/project/flights.jsp">查询航班信息</a>
-	<a href="/project/flights.jsp">管理已收藏的航班信息</a>
-</body>
+<%
+    	user=(User)session.getAttribute("user");
+    	if(user==null){
+    		response.sendRedirect("/project/login.jsp");
+			return;
+    	}
+    %>
+<frameset rows="88,*,31" cols="*" frameborder="no" border="0" framespacing="0">
+  <frame src="top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+  <frameset cols="187,*" frameborder="no" border="0" framespacing="0">
+    <frame src="left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
+    <frame src="index.jsp" name="rightFrame" id="rightFrame" title="rightFrame" />
+  </frameset>
+  <frame src="footer.html" name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" title="bottomFrame" />
+</frameset>
+<noframes><body>
+</body></noframes>
 </html>
