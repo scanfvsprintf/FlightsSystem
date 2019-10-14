@@ -19,6 +19,8 @@ public class AllFlightServiceImpl implements FlightService {
 	@Override
 	public List<Flight> getFlights(String start,String end,Timestamp takeoff,Timestamp land,double price) {
 		FlightDao fd=new AllFlightDaoImpl();
+		start="%"+start+"%";
+		end="%"+end+"%";
 		List<Flight> flights=fd.getFlights(start,end, takeoff, land, price);
 		result=flights;
 		length=flights.size();

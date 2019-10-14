@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement ps=null;
 		User user=null;
 		ResultSet rs=null;
-		String sql="select * from users where uname like ? and pwd like ?";
+		String sql="select * from users where uname = ? and pwd = ?";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project?serverTimezone=GMT","root","xyx123");

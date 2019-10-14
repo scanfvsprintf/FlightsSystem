@@ -50,11 +50,11 @@
 	    <ul>
 	    <%
 				if(session.getAttribute("RegisterFail")!=null){
-					%><li><b id="wrong">注册失败！该用户名已被注册！</b></li><%
+					%><li><b id="wrong">注册失败！该用户名已被注册，或不合法的用户名及密码！</b></li><%
 				}
 		%>
-	    <li><input name="uname" type="text" class="loginuser" value="账户名" onclick="JavaScript:this.value=''"/></li>
-	    <li><input name="pwd" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
+	    <li><input name="uname" type="text" class="loginuser" value="" onclick="JavaScript:this.value=''"/></li>
+	    <li><input name="pwd" type="text" class="loginpwd" value="" onclick="JavaScript:this.value=''"/></li>
 	    <li><input name="" type="submit" class="loginbtn" value="注册"  onclick=""  />&nbsp&nbsp<a href="login.jsp"><input name="" type="button" class="loginbtn" value="返回登录"  onclick=""  /></a></li>
 	    </ul>
     </form>

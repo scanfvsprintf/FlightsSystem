@@ -82,6 +82,7 @@ $(function(){
             <ul class="sub-menus">
             <li><a href="flights.jsp" target="rightFrame">机票查询</a></li>
             <li><a href="flightsCollection.jsp" target="rightFrame">我的收藏</a></li>
+            <li><a href="graphic.jsp" target="rightFrame">统计图表</a></li>
             </ul>
         </li>
         <%

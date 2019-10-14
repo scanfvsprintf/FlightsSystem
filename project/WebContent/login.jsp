@@ -50,7 +50,7 @@
 				}
 		%>
 	    <li><input name="uname" type="text" class="loginuser" value="账户名" onclick="JavaScript:this.value=''"/></li>
-	    <li><input name="pwd" type="text" class="loginpwd" value="密码" onclick="JavaScript:this.value=''"/></li>
+	    <li><input name="pwd" type="password" class="loginpwd" value="" onclick="JavaScript:this.value=''"/></li>
 	    <li><input name="" type="submit" class="loginbtn" value="登录"  onclick="javascript:window.location='main.html'"  />&nbsp&nbsp<a href="register.jsp"><input name="" type="button" class="loginbtn" value="注册"  onclick="javascript:window.location='main.html'"  /></a></li>
 	    </ul>
     </form>

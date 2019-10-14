@@ -62,7 +62,9 @@ public class UserServlet extends HttpServlet {
 		User user=null;
 		HttpSession session=request.getSession();
 		UserService us=new RegisterServiceImpl();
-		user=us.checkUser(request.getParameter("uname"),request.getParameter("pwd"));
+		if(request.getParameter("uname")!=null && request.getParameter("pwd")!=null && !(request.getParameter("uname").equals("")) && !(request.getParameter("pwd").equals("")))
+			user=us.checkUser(request.getParameter("uname"),request.getParameter("pwd"));
+		System.out.println(user);
 		if(user!=null) {
 			session.setAttribute("user", user);
 			session.setAttribute("RegisterFail", null);

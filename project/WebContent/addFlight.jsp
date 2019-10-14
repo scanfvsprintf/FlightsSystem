@@ -23,12 +23,12 @@
     <div class="formtitle"><span>基本信息</span></div>
     <form action="/project/addFlight" method="post" target="rightFrame">
     <ul class="forminfo">
-    <li><label>航班名</label><input name="" type="text" class="dfinput" /></li>
-    <li><label>起飞地</label><input name="" type="text" class="dfinput" /></li>
-    <li><label>降落地</label><input name="" type="text" class="dfinput" /></li>
-    <li><label>起飞时间</label><input name="" type="text" class="dfinput" /><i>时间格式必须为yyyy-mm-dd hh:mm:ss</i></li>
-    <li><label>降落时间</label><input name="" type="text" class="dfinput" /><i>例如：2011-05-09 11:49:45</i></li>
-    <li><label>票价</label><input name="" type="text" class="dfinput" /></li>
+    <li><label>航班名</label><input name="name" type="text" class="dfinput" /></li>
+    <li><label>起飞地</label><input name="start" type="text" class="dfinput" /></li>
+    <li><label>降落地</label><input name="end" type="text" class="dfinput" /></li>
+    <li><label>起飞时间</label><input name="takeoff" type="text" class="dfinput" /><i>时间格式必须为yyyy-mm-dd hh:mm:ss</i></li>
+    <li><label>降落时间</label><input name="land" type="text" class="dfinput" /><i>例如：2011-05-09 11:49:45</i></li>
+    <li><label>票价</label><input name="price" type="text" class="dfinput" /></li>
     <li><label>&nbsp;</label><input name="" type="submit" class="scbtn1" value="确认添加"/></li>
     </ul>
     </form>

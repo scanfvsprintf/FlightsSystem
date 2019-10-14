@@ -25,21 +25,22 @@ $(function(){
 <body style="background:url(images/topbg.gif) repeat-x;">
 
     <div class="topleft">
-    <a href="main.html" target="_parent"><img src="images/logo.png" title="系统首页" /></a>
+    <a href="main.jsp" target="_parent"><img src="images/logo.png" title="系统首页" /></a>
     </div>
         
     <ul class="nav">
-    <li><a href="flights.jsp" target="rightFrame" class="selected"><img src="images/icon01.png" title="工作台" /><h2>机票管理</h2></a></li>
-    <li><a href="flightsCollection.jsp" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>我的收藏</h2></a></li>
-    <li><a href="fixPassWord"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>修改密码</h2></a></li>
-    <li><a href="tech.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>开发人员</h2></a></li>
+    <li><a href="flights.jsp" target="rightFrame" class="selected"><img src="images/icon01.png" title="机票管理" /><h2>机票管理</h2></a></li>
+    <li><a href="flightsCollection.jsp" target="rightFrame"><img src="images/icon05.png" title="我的收藏" /><h2>我的收藏</h2></a></li>
+    <li><a href="graphic.jsp"  target="rightFrame"><img src="images/icon02.png" title="统计图表" /><h2>统计图表</h2></a></li>
+    <li><a href="fixPassWord.jsp"  target="rightFrame"><img src="images/icon06.png" title="修改密码" /><h2>修改密码</h2></a></li>
+    <li><a href="tech.html"  target="rightFrame"><img src="images/icon03.png" title="开发人员" /><h2>开发人员</h2></a></li>
     </ul>
             
     <div class="topright">    
     <ul>
     <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
     <li><a href="#">关于</a></li>
-    <li><a href="login.html" target="_parent">退出</a></li>
+    <li><a href="login.jsp" target="_parent">退出</a></li>
     </ul>
      
     <div class="user">

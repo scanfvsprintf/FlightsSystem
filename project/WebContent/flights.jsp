@@ -169,6 +169,9 @@ $(document).ready(function(e) {
 				*/
 				if(request.getParameter("maxPrice")!=null  && !(request.getParameter("maxPrice").equals(""))){
 					maxPrice=Double.valueOf(request.getParameter("maxPrice"));
+					if(maxPrice<=0){
+						%><script>alert("查询失败，价格输入不合法")</script><%
+					}
 				}
 				result=new AllFlightServiceImpl();
 				flights=result.getFlightsByPage(start,end,takeoff,land,maxPrice,pageNo);
